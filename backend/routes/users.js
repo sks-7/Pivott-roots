@@ -3,18 +3,6 @@ const authenticateToken = require('../middleware/roleCheck');
 const router = express.Router();
 const User = require('../models/User');
 
-// Get all users (requires admin role)
-
-// router.post('/signup', async (req, res) => {
-//   try {
-//     const newUser = await User.create(req.body);
-
-//     res.send(newUser);
-//   } catch (e) {
-//     console.log(e, 'something went wrong');
-//   }
-// });
-
 router.get('/', authenticateToken, (req, res) => {
   // Check if the user has the required role
   if (req.user.role !== 'admin') {
@@ -45,7 +33,7 @@ router.get('/:id', authenticateToken, async (req, res) => {
   }
 });
 
-// Create a new user (requires admin role)
+// Create a new user 
 router.post('/', authenticateToken, async (req, res) => {
   // Check if the user has the required role
   if (req.user.role !== 'admin') {
@@ -61,7 +49,7 @@ router.post('/', authenticateToken, async (req, res) => {
   }
 });
 
-// Update a user (requires admin role)
+// Update a user 
 router.put('/:id', authenticateToken, (req, res) => {
   // Check if the user has the required role
   if (req.user.role !== 'admin') {
@@ -84,7 +72,7 @@ router.put('/:id', authenticateToken, (req, res) => {
     });
 });
 
-// Delete a user (requires admin role)
+// Delete a user 
 router.delete('/:id', authenticateToken, (req, res) => {
   // Check if the user has the required role
   if (req.user.role !== 'admin') {

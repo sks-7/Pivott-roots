@@ -36,7 +36,6 @@ router.get('/:id', async (req, res) => {
 
 // Create a new item (requires admin role)
 router.post('/', authenticateToken, async (req, res) => {
-  // Check if the user has the required role
   if (req.user.role !== 'admin' && req.user.role !== 'customer_executive') {
     return res.status(403).json({ message: 'Forbidden' });
   }
@@ -49,19 +48,6 @@ router.post('/', authenticateToken, async (req, res) => {
   } catch (e) {
     res.status(500).json({ message: 'Internal server error' });
   }
-
-  // Create a new item using the request body
-  // const newItem = new Item(req.body);
-
-  // // Save the new item to the database
-  // newItem
-  //   .save()
-  //   .then((item) => {
-  //     res.status(201).json({ message: 'Item created successfully', item });
-  //   })
-  //   .catch((error) => {
-  //     res.status(500).json({ message: 'Internal server error' });
-  //   });
 });
 
 // Update an item (requires admin role)

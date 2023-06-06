@@ -4,27 +4,8 @@ const router = express.Router();
 const User = require('../models/User');
 require('dotenv').config();
 
-// Authentication endpoint
 router.post('/login', (req, res) => {
-  // Authenticate the user
-
   const { username, password } = req.body;
-
-  // try {
-  //   const user = await User.create(req.body);
-
-  //   if (user) {
-  //     const role = user.role;
-  //     const token = jwt.sign(
-  //       { username, role: user.role },
-  //       process.env.secretKey
-  //     );
-
-  //     res.json({ token, role });
-  //   }
-  // } catch (e) {
-  //   res.status(500).json({ message: 'Internal server error', e });
-  // }
 
   User.findOne({ username, password })
     .then((user) => {
