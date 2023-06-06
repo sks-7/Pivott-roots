@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Flex,
   FormControl,
   FormLabel,
   Input,
@@ -40,10 +41,6 @@ const Login = () => {
         if (res.token) {
           localStorage.setItem('token', res.token);
         }
-
-        if (res.role) {
-          localStorage.setItem('role', res.role);
-        }
         alert('login success');
         setTimeout(() => {
           navigate('/dashboard');
@@ -51,6 +48,26 @@ const Login = () => {
         }, 200);
       })
       .catch((err) => console.log(err));
+  };
+
+  // ------------ auto login------------------
+
+  const handalAdmin = () => {
+    setUsername('sangita kumari');
+    setPassword('123456');
+    setRole('admin');
+  };
+
+  const handalaccount = () => {
+    setUsername('Sachin Kumar');
+    setPassword('1234');
+    setRole('accounts');
+  };
+
+  const handalcustomer = () => {
+    setUsername('Sonam Kumari');
+    setPassword('1234');
+    setRole('customer_executive');
   };
 
   return (
@@ -91,6 +108,12 @@ const Login = () => {
           </Select>
         </FormControl>
         <Button onClick={handleSubmit}>Login</Button>
+
+        <Flex gap="20px">
+          <Button onClick={handalAdmin}>Admin</Button>
+          <Button onClick={handalaccount}>Accounts</Button>
+          <Button onClick={handalcustomer}>Customer_executive</Button>
+        </Flex>
       </VStack>
     </Container>
   );

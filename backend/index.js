@@ -24,8 +24,13 @@ app.use(cors());
 // Routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
+const itemsRoutes = require('./routes/Items');
+const ordersRoutes = require('./routes/orders');
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/orders', ordersRoutes);
+app.use('/api/items', itemsRoutes);
 
 // Start the server
 const PORT = 8080;

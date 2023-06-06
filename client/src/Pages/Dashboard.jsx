@@ -12,15 +12,20 @@ import UsersTable from '../components/UsersTable';
 import { useNavigate } from 'react-router-dom';
 import AddOrders from '../components/AddOrders';
 import Ordertable from '../components/Ordertable';
+import { ADD_ITEMS } from '../Redux/actionTypes';
+import AddItems from '../components/AddItems';
+import ItemsTable from '../components/ItemsTable';
 
 const Dashboard = () => {
-  const role = localStorage.getItem('role');
-  console.log(typeof role);
+  const role = {
+    admin: 'admin',
+    accounts: 'accounts',
+    customer_executive: 'customer_executive',
+  };
   const navigate = useNavigate();
 
   const handalLogout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('role');
 
     setTimeout(() => {
       navigate('/');
@@ -28,7 +33,7 @@ const Dashboard = () => {
   };
 
   const renderAccordions = () => {
-    if (role === 'admin') {
+    if (role.admin === 'admin') {
       return (
         <>
           <AccordionItem>
@@ -75,15 +80,15 @@ const Dashboard = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              <AddItems />
+              <br />
+              <br />
+              <ItemsTable />
             </AccordionPanel>
           </AccordionItem>
         </>
       );
-    } else if (role === 'customer_executive') {
+    } else if (role.customer_executive === 'customer_executive') {
       return (
         <>
           <AccordionItem>
@@ -104,7 +109,7 @@ const Dashboard = () => {
           </AccordionItem>
         </>
       );
-    } else if (role === 'accounts') {
+    } else if (role.accounts === 'accounts') {
       return (
         <>
           <AccordionItem>
@@ -133,9 +138,9 @@ const Dashboard = () => {
   return (
     <div>
       <Flex gap={10} justifyContent={'center'} mt="20px">
-        <Text fontSize={30} fontWeight={500}>
+        {/* <Text fontSize={30} fontWeight={500}>
           {role}
-        </Text>
+        </Text> */}
         <Button onClick={handalLogout}>LogOut</Button>
 
         <Accordion allowToggle>{renderAccordions()}</Accordion>

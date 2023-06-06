@@ -11,36 +11,33 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigate, useParams } from 'react-router-dom';
-import { getSingleorders, loadOrder, updateOrder } from '../Redux/action';
+import { getSingleitems, loadItems, updateItems } from '../Redux/action';
 
-const UpdateOrderPage = () => {
+const UpdateItemsPage = () => {
   const [state, setState] = useState({
-    order: '',
+    Item: '',
   });
 
   let { id } = useParams();
 
   console.log(id);
-  const { singleOrders } = useSelector((state) => state);
+  const { singleItems } = useSelector((state) => state);
 
-  console.log('singledata', singleOrders);
+  console.log('singledata', singleItems);
+
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
-  const { order } = state;
-
-  // console.log(username, role);
+  const { Item } = state;
 
   useEffect(() => {
-    dispatch(getSingleorders(id));
+    dispatch(getSingleitems(id));
   }, []);
 
   useEffect(() => {
-    if (singleOrders) {
-      setState({ ...singleOrders });
+    if (singleItems) {
+      setState({ ...singleItems });
     }
-  }, [singleOrders]);
+  }, [singleItems]);
 
   const handalChange = (e) => {
     let { name, value } = e.target;
@@ -48,12 +45,12 @@ const UpdateOrderPage = () => {
   };
 
   const handalSubmmit = () => {
-    dispatch(updateOrder(state, id));
+    dispatch(updateItems(state, id));
 
     navigate('/dashboard');
 
     setTimeout(() => {
-      dispatch(loadOrder());
+      dispatch(loadItems());
     }, 1000);
   };
 
@@ -61,21 +58,22 @@ const UpdateOrderPage = () => {
     <>
       <Container mt="6rem">
         <FormControl>
-          <FormLabel> Orders</FormLabel>
+          <FormLabel> Items</FormLabel>
           <Input
-            placeholder=" order"
-            name="order"
-            value={order}
+            placeholder=" Item"
+            name="Item"
+            value={Item}
             onChange={handalChange}
           />
         </FormControl>
 
         <Button mt="30px" w="100%" onClick={handalSubmmit}>
-          Update Orders
+          Update Items
         </Button>
+
       </Container>
     </>
   );
 };
 
-export default UpdateOrderPage;
+export default UpdateItemsPage;
