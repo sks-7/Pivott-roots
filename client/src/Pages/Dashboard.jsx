@@ -12,7 +12,7 @@ import UsersTable from '../components/UsersTable';
 import { useNavigate } from 'react-router-dom';
 import AddOrders from '../components/AddOrders';
 import Ordertable from '../components/Ordertable';
-import { ADD_ITEMS } from '../Redux/actionTypes';
+
 import AddItems from '../components/AddItems';
 import ItemsTable from '../components/ItemsTable';
 
@@ -131,16 +131,13 @@ const Dashboard = () => {
         </>
       );
     } else {
-      return null; // Handle unknown role or show default UI
+      return null;
     }
   };
 
   return (
     <div>
       <Flex gap={10} justifyContent={'center'} mt="20px">
-        {/* <Text fontSize={30} fontWeight={500}>
-          {role}
-        </Text> */}
         <Button onClick={handalLogout}>LogOut</Button>
 
         <Accordion allowToggle>{renderAccordions()}</Accordion>

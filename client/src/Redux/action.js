@@ -28,7 +28,7 @@ const token = localStorage.getItem('token');
 export const loadUser = () => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:8080/api/users`, {
+      .get(`https://piviot-roots.onrender.com/api/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -45,7 +45,7 @@ export const loadUser = () => {
 export const deleteUser = (id) => {
   return function (dispatch) {
     axios
-      .delete(`http://localhost:8080/api/users/${id}`, {
+      .delete(`https://piviot-roots.onrender.com/api/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -63,7 +63,7 @@ export const deleteUser = (id) => {
 export const addUser = (user) => {
   return function (dispatch) {
     axios
-      .post(`http://localhost:8080/api/users`, user, {
+      .post(`https://piviot-roots.onrender.com/api/users`, user, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -82,7 +82,7 @@ export const addUser = (user) => {
 export const getSingleUsers = (id) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:8080/api/users/${id}`, {
+      .get(`https://piviot-roots.onrender.com/api/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -100,7 +100,7 @@ export const getSingleUsers = (id) => {
 export const updateUser = (user, id) => {
   return function (dispatch) {
     axios
-      .put(`http://localhost:8080/api/users/${id}`, user, {
+      .put(`https://piviot-roots.onrender.com/api/users/${id}`, user, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -142,7 +142,7 @@ const orderUpdate = () => ({
 export const loadOrder = () => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:8080/api/orders`, {
+      .get(`https://piviot-roots.onrender.com/api/orders`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -159,7 +159,7 @@ export const loadOrder = () => {
 export const deleteOrder = (id) => {
   return function (dispatch) {
     axios
-      .delete(`http://localhost:8080/api/orders/${id}`, {
+      .delete(`https://piviot-roots.onrender.com/api/orders/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -177,7 +177,7 @@ export const deleteOrder = (id) => {
 export const addOrder = (user) => {
   return function (dispatch) {
     axios
-      .post(`http://localhost:8080/api/orders`, user, {
+      .post(`https://piviot-roots.onrender.com/api/orders`, user, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -196,7 +196,7 @@ export const addOrder = (user) => {
 export const getSingleorders = (id) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:8080/api/orders/${id}`, {
+      .get(`https://piviot-roots.onrender.com/api/orders/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -214,7 +214,7 @@ export const getSingleorders = (id) => {
 export const updateOrder = (order, id) => {
   return function (dispatch) {
     axios
-      .put(`http://localhost:8080/api/orders/${id}`, order, {
+      .put(`https://piviot-roots.onrender.com/api/orders/${id}`, order, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -258,7 +258,7 @@ const itemsUpdate = () => ({
 export const loadItems = () => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:8080/api/items`, {
+      .get(`https://piviot-roots.onrender.com/api/items`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -275,7 +275,7 @@ export const loadItems = () => {
 export const deleteItems = (id) => {
   return function (dispatch) {
     axios
-      .delete(`http://localhost:8080/api/items/${id}`, {
+      .delete(`https://piviot-roots.onrender.com/api/items/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -295,7 +295,7 @@ export const addItem = (Item) => {
     // console.log(Item);
 
     axios
-      .post(`http://localhost:8080/api/items`, Item, {
+      .post(`https://piviot-roots.onrender.com/api/items`, Item, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -315,7 +315,7 @@ export const getSingleitems = (id) => {
   return function (dispatch) {
     console.log(id);
     axios
-      .get(`http://localhost:8080/api/items/${id}`, {
+      .get(`https://piviot-roots.onrender.com/api/items/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -334,7 +334,7 @@ export const updateItems = (Item, id) => {
   return function (dispatch) {
     // console.log(items, id);
     axios
-      .put(`http://localhost:8080/api/items/${id}`, Item, {
+      .put(`https://piviot-roots.onrender.com/api/items/${id}`, Item, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -8,6 +8,7 @@ import {
   FormLabel,
   Input,
   Select,
+  Text,
   VStack,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +29,7 @@ const Login = () => {
 
     console.log(payload);
 
-    fetch('http://localhost:8080/api/auth/login', {
+    fetch('https://piviot-roots.onrender.com/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -74,7 +75,7 @@ const Login = () => {
     <Container>
       <VStack spacing={4} align="center">
         <Box>
-          <h1>Login here</h1>
+          <Text mt="30px" fontSize={"30px"} fontWeight={"600"}>Login here</Text>
         </Box>
 
         <FormControl>
@@ -108,6 +109,8 @@ const Login = () => {
           </Select>
         </FormControl>
         <Button onClick={handleSubmit}>Login</Button>
+
+      <Text textAlign={"center"} fontSize={"20px"} >Quick Login</Text>
 
         <Flex gap="20px">
           <Button onClick={handalAdmin}>Admin</Button>
