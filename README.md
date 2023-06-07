@@ -1,5 +1,9 @@
 ## Pivott-roots
 
+## Deployed Link -> https://64802ab72c724d38cb92603c--chipper-pie-213ebc.netlify.app/
+
+## Video Link -> 
+
 - In this I am making three modules 
 - Users module
 - Items module
